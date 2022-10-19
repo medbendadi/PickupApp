@@ -11,8 +11,7 @@ import { cycleList } from '../pages/data/cycleList'
 
 
 
-const access_token = process.env.API_ACCESS_TOKEN
-const confirm = () => {
+const Confirm = () => {
    const router = useRouter()
    const { from, to, type } = router.query
 
@@ -105,7 +104,7 @@ const confirm = () => {
    )
 }
 
-export default confirm
+export default Confirm
 
 
 

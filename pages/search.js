@@ -96,7 +96,7 @@ const customStyles = {
 
 }
 
-const search = () => {
+const Search = () => {
    const [fromSelectedValue, setFromSelectedValue] = useState(null)
    const [toSelectedValue, setToSelectedValue] = useState(null)
    const [fromSelectedValueInput, setFromSelectedValueInput] = useState(null)
@@ -194,7 +194,7 @@ const search = () => {
    )
 }
 
-export default search
+export default Search
 
 const Wrapper = tw.div`
 bg-mainBlack h-screen
