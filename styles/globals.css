@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap');
+
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 a {
@@ -20,7 +23,82 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    background: white;
+    color: black;
   }
+}
+
+
+.active{
+  background-color: #c0ec4e;
+  color: #000 !important;
+}
+
+.marker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  /* margin-bottom: 10px; */
+  background-image: url(../images/location-pin.png);
+  /* background-position: top; */
+  background-size: 100%;
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  }
+
+
+.table__pagination-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  align-self: self-start;    
+
+}
+.table__pagination{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  /* flex-direction: column; */
+  
+
+}
+ .table__pagination-item ~ .table__pagination-item{
+    margin-left: 20px;
+ }
+ .table__pagination-item{
+    width: 10px;
+    height: 10px;
+    background-color: #698235;
+    font-size: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+  }
+  .table__pagination-item:hover{
+    box-shadow: 0 0px 18px 0 #c0ec4e;
+  }
+  @media screen and (min-width:2000px) {
+    .table__pagination-item{
+      width: 10px;
+       height: 10px;
+       font-size: 1rem;
+    }
+  }
+ .table__pagination-item.active, .table__pagination-item.active:hover{
+  background-color: #c0ec4e;
+  /* color: #c0ec4e; */
+  font-weight: 600;
+}
+.table__pagination-item:hover{
+  color: #000;
+  background-color: #c0ec4e;
 }
