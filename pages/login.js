@@ -30,6 +30,7 @@ function Login() {
             router.push('/')
          }
       })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
    const renderBody = (item, index) => (
       <DescriptionContainer key={index}>

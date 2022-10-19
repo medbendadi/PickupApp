@@ -52,6 +52,7 @@ const Map = ({ fromCoordinates, toCoordinates, distance, type }) => {
 
 
       setLoading(false)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [fromCoordinates, toCoordinates, map.current])
 
    // Add Marker

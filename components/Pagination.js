@@ -14,9 +14,11 @@ const Table = props => {
    const initDataShow = props.limit && data ? data.slice(0, Number(props.limit)) : data
    useEffect(
       () => {
-
-         setDataShow(initDataShow)
-         setData(props.bodyData)
+         function getData() {
+            setDataShow(initDataShow)
+            setData(props.bodyData)
+         }
+         getData()
       }, [data]);
 
 
