@@ -6,8 +6,8 @@ import Map from '../components/Map'
 import RideSelector from '../components/RideSelector'
 import * as turf from '@turf/turf'
 import HeadC from '../components/HeadC'
-import { carList } from '../pages/data/carList'
-import { cycleList } from '../pages/data/cycleList'
+import { carList } from '../data/carList'
+import { cycleList } from '../data/cycleList'
 
 
 
