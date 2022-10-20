@@ -124,7 +124,7 @@ const Table = props => {
                                           selectPage(index + 1)
                                           setActive(index + 1)
                                        }}>
-                                          <NextButtonImg src='https://i.ibb.co/3p9LyNN/right-arrow-alt-regular-24.png" alt="right-arrow-alt-regular-24' />
+                                          <NextButtonImg src='https://i.postimg.cc/wvf8gGSY/right-arrow-alt-regular-24.png' />
                                        </NextButton>
                                     )
                                  }
