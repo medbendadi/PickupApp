@@ -41,7 +41,7 @@ a {
   cursor: pointer;
   padding: 0;
   /* margin-bottom: 10px; */
-  background-image: url(/location-pin.png);
+  background-image: url('../public/location-pin.png');
   /* background-position: top; */
   background-size: 100%;
   width: 35px;
