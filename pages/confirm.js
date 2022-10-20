@@ -86,7 +86,12 @@ const Confirm = () => {
                data={type === 'cycling' ? cycleList : carList}
             />
             <ConfirmButtonContainer>
-               <Link href={`/search/${type}`}>
+               <Link href={{
+                  pathname: '/search',
+                  query: {
+                     type: type,
+                  }
+               }}>
                   <BackButton>
                      Back
                   </BackButton>
