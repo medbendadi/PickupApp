@@ -30,7 +30,7 @@ const ActionItems = () => {
                }
             }}>
                <ActionButton>
-                  <ActionButtonImg src='https://i.ibb.co/VV1Fv0H/electric-bicycle-mountain-bike-cross-country-cycling-bikes-27337026abeb8ff2166df994c2770cd4.png' />
+                  <ActionButtonImg src='https://i.postimg.cc/QCFpyFQZ/bike.png' />
                   Wheel
                </ActionButton>
             </Link>
