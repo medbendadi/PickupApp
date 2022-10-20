@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import tw from "tailwind-styled-components"
 import mapboxgl from "mapbox-gl"
 import axios from "axios"
+import pinIcon from '../images/location-pin.png'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWVkYmVuZGFkaSIsImEiOiJjbDlhMTlhejkwbHAxM3dwOHkycHJ3cTNwIn0.HCITQvgNiGt3bn1DNbliww'
 
@@ -59,6 +60,7 @@ const Map = ({ fromCoordinates, toCoordinates, distance, type }) => {
    const addToMap = (map, from, to) => {
       const el1 = document.createElement('div');
       el1.className = 'marker';
+      el1.style.backgroundImage = pinIcon
 
 
       // Add markers to the map
@@ -68,6 +70,7 @@ const Map = ({ fromCoordinates, toCoordinates, distance, type }) => {
 
       const el2 = document.createElement('div');
       el2.className = 'marker';
+      el2.style.backgroundImage = pinIcon
 
 
       // Add markers to the map
