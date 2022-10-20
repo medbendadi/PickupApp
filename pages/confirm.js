@@ -33,7 +33,6 @@ const Confirm = () => {
             if (!data.features[0].center) return;
             if (data.features[0].place_name != from) return;
             setFromCoordinates(data.features[0].center)
-            console.log(data.features[0]);
          })
          .catch(err => console.error(err))
    }
@@ -51,7 +50,6 @@ const Confirm = () => {
             if (!data.features[0].center) return;
             if (data.features[0].place_name != to) return;
             setToCoordinates(data.features[0].center)
-            console.log(data.features[0]);
          })
          .catch(err => console.error(err))
 
@@ -70,8 +68,6 @@ const Confirm = () => {
    }, [from, to])
 
    useEffect(() => {
-      console.log(fromCoordinates);
-      console.log(toCoordinates);
       getPointsDistance(fromCoordinates, toCoordinates)
 
    }, [fromCoordinates, toCoordinates])

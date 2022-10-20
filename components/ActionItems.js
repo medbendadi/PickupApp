@@ -3,7 +3,6 @@ import tw from "tailwind-styled-components"
 import React from 'react'
 
 import Header from './Header';
-// import logo from '/original-892677c725f1b56cfbdd8031e35c3f90__3_-removebg-preview.png'
 const ActionItems = () => {
 
    return (

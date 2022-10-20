@@ -3,7 +3,7 @@ import Head from 'next/head'
 const HeadC = ({ title }) => {
   return (
     <Head>
-      <title>Pickup | {title}</title>
+      <title>{`Pickup | ${title}`}</title>
     </Head>
   )
 }

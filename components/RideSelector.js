@@ -7,7 +7,6 @@ const RideSelector = ({ distance, data }) => {
    const CarsRef = React.useRef([]);
 
 
-   console.log(data);
    const setActive = index => {
       if (CarsRef.current[index].classList.contains("active")) {
          CarsRef.current[index].classList.remove("active");

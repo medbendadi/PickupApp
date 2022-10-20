@@ -14,7 +14,6 @@ const Header = () => {
       return onAuthStateChanged(auth, user => {
          if (user) {
             setUser({ name: user.displayName, imgUrl: user.photoURL })
-            console.log(user.photoURL);
          } else {
             router.push('/login')
             setUser(null)

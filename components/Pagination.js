@@ -38,7 +38,6 @@ const Table = props => {
    const [currPage, setCurrPage] = useState(1)
 
    const selectPage = page => {
-      // console.log(page);
       setThisIndex(page)
       const start = Number(props.limit) * (page)
       const end = start + Number(props.limit)

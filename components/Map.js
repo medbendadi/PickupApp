@@ -83,7 +83,6 @@ const Map = ({ fromCoordinates, toCoordinates, distance, type }) => {
          const query = await axios.get(
             `https://api.mapbox.com/directions/v5/mapbox/${type}/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`)
          if (query.status === 200) {
-            console.log(query.data);
             const route = query.data.routes[0]?.geometry.coordinates;
             const geojson = {
                type: 'Feature',
