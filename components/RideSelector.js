@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import tw from "tailwind-styled-components"
-import { getStripe } from '../checkout';
+import { checkout } from '../checkout';
 import Header from './Header';
 
 const RideSelector = ({ distance, data, type }) => {
@@ -25,26 +25,8 @@ const RideSelector = ({ distance, data, type }) => {
       }
    };
 
-   const handleCheckout = async () => {
-      const stripe = await getStripe()
-
-      const response = await fetch('../pages/api/stripe', {
-         method: 'POST',
-         headers: {
-            'Content-Type': 'application/json',
-         },
-         body: JSON.stringify(currentCar),
-      })
-
-      if (response.statusCode === 500) return
-
-      const data = await response.json()
-      console.log(data);
-      // toast.loading('Redirecting...', {
-      //   position: 'bottom-right',
-      // })
-
-      stripe.redirectToCheckout({ sessionId: data.id })
+   const handleCheckout = () => {
+      checkout(currentCar)
    }
    return (
       <>

@@ -1,13 +1,35 @@
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 
-let stripePromise;
 
-const getStripe = () => {
-   if (!stripePromise) {
-      stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+export const checkout = async ({ currentData }) => {
+   let stripePromise = null
+
+   const getStripe = () => {
+      if (!stripePromise) {
+         stripePromise = loadStripe(process.env.NEXT_PUBLIC_API_KEY)
+      }
+
+      return stripePromise
    }
 
-   return stripePromise;
-}
+   const stripe = await getStripe()
 
-export default getStripe;
+
+   console.log(currentData);
+
+   const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(currentData),
+   })
+
+   if (response.statusCode === 500) return
+
+   const data = await response.json()
+
+   console.log(data);
+   await stripe.redirectToCheckout({ sessionId: data.id })
+
+}
