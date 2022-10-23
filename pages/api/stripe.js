@@ -25,7 +25,7 @@ export default async function handler(req, res) {
                },
             ],
             mode: 'payment',
-            success_url: `https://pickup-self.vercel.app/success?sessionId=${session.id}?username=${username}?type=${type}`,  // can send in the id of the order if already created with the property of the payment pending
+            success_url: `https://pickup-self.vercel.app/success?sessionId=${session.id}`,  // can send in the id of the order if already created with the property of the payment pending
             cancel_url: `https://pickup-self.vercel.app/confirm`,
          });
 
