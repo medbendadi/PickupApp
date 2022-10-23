@@ -3,30 +3,30 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-   const { productPrice, title } = req.body
+   const { price, title } = req.body
 
    if (req.method === 'POST') {
       try {
-         // const params = {
-         //    mode: 'payment',
-         //    line_items: {
-         //       currency: 'usd',
-         //       price_data: {
-         //          product_data: {
-         //             name: title,
-         //             images: 'https://i.pinimg.com/originals/0a/1f/82/0a1f820e29719c7b67e9d5aa44241155.png',
-         //          },
-         //          unit_amount: price * 100,
-         //       },
-         //       // adjustable_quantity: {
-         //       //    enabled: true,
-         //       //    minimum: 1,
-         //       // },
-         //       quantity: 1,
-         //    },
-         //    success_url: `https://pickup-self.vercel.app/success`,
-         //    cancel_url: `https://pickup-self.vercel.app/cancel`,
-         // }
+         const params = {
+            mode: 'payment',
+            line_items: {
+               currency: 'usd',
+               price_data: {
+                  product_data: {
+                     name: title,
+                     images: 'https://i.pinimg.com/originals/0a/1f/82/0a1f820e29719c7b67e9d5aa44241155.png',
+                  },
+                  unit_amount: price * 100,
+               },
+               // adjustable_quantity: {
+               //    enabled: true,
+               //    minimum: 1,
+               // },
+               quantity: 1,
+            },
+            success_url: `https://pickup-self.vercel.app/success`,
+            cancel_url: `https://pickup-self.vercel.app/cancel`,
+         }
 
          // Create Checkout Sessions from body params.
          const session = await stripe.checkout.sessions.create({
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
                         name: 'Pickup',
                         images: ['https://i.imgur.com/EHyR2nP.png'],
                      },
-                     unit_amount: Number(productPrice) * 100,
+                     unit_amount: parseFloat(price) * 100,
                   },
                   quantity: 1,
                },
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
             cancel_url: `https://pickup-self.vercel.app/cancel`,
          });
 
-         res.status(200).json(session);
+         res.status(200).json("");
       } catch (err) {
          res.status(err.statusCode || 500).json(err.message);
       }
