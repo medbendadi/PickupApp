@@ -29,8 +29,8 @@ export default async function handler(req, res) {
                   minimum: 1,
                },
                quantity: 1,
-               success_url: `${req.headers.origin}/success`,
-               cancel_url: `${req.headers.origin}/cancel`,
+               success_url: `https://pickup-self.vercel.app/success`,
+               cancel_url: `https://pickup-self.vercel.app/cancel`,
             }
          }
 
