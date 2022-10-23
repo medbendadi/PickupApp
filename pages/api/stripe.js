@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-   const { price, username, type } = req.body
+   const { price } = req.body
 
    if (req.method === 'POST') {
       try {
