@@ -3,37 +3,14 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-   const { price, title } = req.body
+   const { price, user, type } = req.body
+   const { username } = user
 
    if (req.method === 'POST') {
       try {
-         const params = {
-            mode: 'payment',
-            line_items: {
-               currency: 'usd',
-               price_data: {
-                  product_data: {
-                     name: title,
-                     images: 'https://i.pinimg.com/originals/0a/1f/82/0a1f820e29719c7b67e9d5aa44241155.png',
-                  },
-                  unit_amount: price * 100,
-               },
-               // adjustable_quantity: {
-               //    enabled: true,
-               //    minimum: 1,
-               // },
-               quantity: 1,
-            },
-            success_url: `https://pickup-self.vercel.app/success`,
-            cancel_url: `https://pickup-self.vercel.app/cancel`,
-         }
-
          // Create Checkout Sessions from body params.
          const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            // metadata: {
-            //     order_id: parsedOrder._id,
-            // },
             line_items: [
                {
                   price_data: {
@@ -49,7 +26,7 @@ export default async function handler(req, res) {
                },
             ],
             mode: 'payment',
-            success_url: `https://pickup-self.vercel.app/success`,  // can send in the id of the order if already created with the property of the payment pending
+            success_url: `https://pickup-self.vercel.app/success?sessionId=${session.id}?username=${username}?type=${type}`,  // can send in the id of the order if already created with the property of the payment pending
             cancel_url: `https://pickup-self.vercel.app/confirm`,
          });
 
