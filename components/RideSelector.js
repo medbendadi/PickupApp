@@ -26,7 +26,6 @@ const RideSelector = ({ distance, data }) => {
    };
 
    const handleCheckout = async () => {
-      // const body = { currentCar }
       const stripe = await checkout()
 
       const response = await fetch('../pages/api/stripe.js', {
