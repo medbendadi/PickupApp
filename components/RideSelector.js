@@ -29,7 +29,7 @@ const RideSelector = ({ distance, data }) => {
       // const body = { currentCar }
       const stripe = await checkout()
 
-      const response = await fetch('/api/stripe', {
+      const response = await fetch('../pages/api/stripe.js', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',
