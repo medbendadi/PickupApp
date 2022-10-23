@@ -29,9 +29,9 @@ export default async function handler(req, res) {
                   minimum: 1,
                },
                quantity: 1,
-               success_url: `https://pickup-self.vercel.app/success`,
-               cancel_url: `https://pickup-self.vercel.app/cancel`,
-            }
+            },
+            success_url: `https://pickup-self.vercel.app/success`,
+            cancel_url: `https://pickup-self.vercel.app/cancel`,
          }
 
          // Create Checkout Sessions from body params.
