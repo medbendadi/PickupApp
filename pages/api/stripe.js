@@ -41,7 +41,7 @@ export default async function handler(req, res) {
                      product_data: {
 
                         name: 'Pickup',
-                        images: ['/original-892677c725f1b56cfbdd8031e35c3f90 (4).jpg'],
+                        images: ['https://i.postimg.cc/Bn6jBLtr/original-892677c725f1b56cfbdd8031e35c3f90-4.jpg'],
                      },
                      unit_amount: parseFloat(price) * 100,
                   },
