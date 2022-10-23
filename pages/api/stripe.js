@@ -43,7 +43,7 @@ export default async function handler(req, res) {
                         name: 'Pickup',
                         images: ['https://i.imgur.com/EHyR2nP.png'],
                      },
-                     unit_amount: productPrice * 100,
+                     unit_amount: Number(productPrice) * 100,
                   },
                   quantity: 1,
                },
