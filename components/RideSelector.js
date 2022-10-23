@@ -28,7 +28,7 @@ const RideSelector = ({ distance, data }) => {
    const handleCheckout = async () => {
       const stripe = await checkout()
 
-      const response = await fetch('../pages/api/stripe.js', {
+      const response = await fetch('./stripe', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',
