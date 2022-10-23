@@ -6,7 +6,7 @@ import Header from './Header';
 
 const RideSelector = ({ distance, data }) => {
    const CarsRef = React.useRef([]);
-   const [currentCar, setCurrentCar] = useState(second)
+   const [currentCar, setCurrentCar] = React.useState(second)
 
 
    const setActive = (index, car) => {
