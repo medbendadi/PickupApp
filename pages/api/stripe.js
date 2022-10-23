@@ -7,14 +7,14 @@ export default async function handler(req, res) {
    if (req.method === 'POST') {
       try {
          const params = {
-            submit_type: 'pay',
+            // submit_type: 'pay',
             mode: 'payment',
-            payment_method_types: ['card'],
-            billing_address_collection: 'auto',
-            shipping_options: [
-               { shipping_rate: 'shr_1L4pafH6oGDppJjV9MrYC7z0' },
-               { shipping_rate: 'shr_1L4pn4H6oGDppJjVBL7vPTk1' },
-            ],
+            // payment_method_types: ['card'],
+            // billing_address_collection: 'auto',
+            // shipping_options: [
+            //    { shipping_rate: 'shr_1L4pafH6oGDppJjV9MrYC7z0' },
+            //    { shipping_rate: 'shr_1L4pn4H6oGDppJjVBL7vPTk1' },
+            // ],
             line_items: {
                price_data: {
                   currency: 'usd',
@@ -24,10 +24,10 @@ export default async function handler(req, res) {
                   },
                   unit_amount: price * 100,
                },
-               adjustable_quantity: {
-                  enabled: true,
-                  minimum: 1,
-               },
+               // adjustable_quantity: {
+               //    enabled: true,
+               //    minimum: 1,
+               // },
                quantity: 1,
             },
             success_url: `https://pickup-self.vercel.app/success`,
