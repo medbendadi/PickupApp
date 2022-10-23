@@ -90,13 +90,7 @@ const RideSelector = ({ distance, data }) => {
                </BackButton>
             </Link>
             <ConfirmButton onClick={() => {
-               checkout({
-                  lineItems: [
-                     {
-                        price: {}
-                     }
-                  ]
-               })
+               handleCheckout()
             }}>
                Confirm
             </ConfirmButton>
