@@ -29,7 +29,7 @@ export const checkout = async (currentData) => {
 
    const data = await response.json()
 
-   console.log(data);
+   console.log(data.id);
    await stripe.redirectToCheckout({ sessionId: data.id })
 
 }

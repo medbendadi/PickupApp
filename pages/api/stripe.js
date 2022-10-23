@@ -53,7 +53,7 @@ export default async function handler(req, res) {
             cancel_url: `https://pickup-self.vercel.app/cancel`,
          });
 
-         res.status(200).json("");
+         res.status(200).json(session);
       } catch (err) {
          res.status(err.statusCode || 500).json(err.message);
       }
