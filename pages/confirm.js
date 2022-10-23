@@ -8,6 +8,7 @@ import * as turf from '@turf/turf'
 import HeadC from '../components/HeadC'
 import { carList } from '../data/carList'
 import { cycleList } from '../data/cycleList'
+import { checkout } from '../checkout'
 
 
 
@@ -85,21 +86,6 @@ const Confirm = () => {
                distance={distance}
                data={type === 'cycling' ? cycleList : carList}
             />
-            <ConfirmButtonContainer>
-               <Link href={{
-                  pathname: '/search',
-                  query: {
-                     type: type,
-                  }
-               }}>
-                  <BackButton>
-                     Back
-                  </BackButton>
-               </Link>
-               <ConfirmButton>
-                  Confirm
-               </ConfirmButton>
-            </ConfirmButtonContainer>
          </RideContainer>
       </Wrapper >
    )
@@ -115,13 +101,4 @@ h-screen flex flex-col sm:flex-row bg-mainBlackLight
 
 const RideContainer = tw.div`
 flex-1 flex flex-col sm:h-full h-3/5 sm:flex-none sm:w-2/5
-`
-const ConfirmButtonContainer = tw.div`
-flex items-center
-`
-const ConfirmButton = tw.div`
-bg-main rounded-xl flex-1 text-black my-4 mx-4 py-3 font-bold px-2 text-center text-xl cursor-pointer
-`
-const BackButton = tw.div`
-bg-mainBlack rounded-xl flex-1 text-white my-4 mx-4 py-3 font-bold px-2 text-center text-xl cursor-pointer hover:shadow-custom transition duration-300 transform
 `
