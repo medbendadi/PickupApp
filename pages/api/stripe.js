@@ -7,20 +7,13 @@ export default async function handler(req, res) {
    if (req.method === 'POST') {
       try {
          const params = {
-            // submit_type: 'pay',
             mode: 'payment',
-            // payment_method_types: ['card'],
-            // billing_address_collection: 'auto',
-            // shipping_options: [
-            //    { shipping_rate: 'shr_1L4pafH6oGDppJjV9MrYC7z0' },
-            //    { shipping_rate: 'shr_1L4pn4H6oGDppJjVBL7vPTk1' },
-            // ],
             line_items: {
                price_data: {
                   currency: 'usd',
                   product_data: {
                      name: title,
-                     //  images: [img],
+                     images: 'https://i.pinimg.com/originals/0a/1f/82/0a1f820e29719c7b67e9d5aa44241155.png',
                   },
                   unit_amount: price * 100,
                },
