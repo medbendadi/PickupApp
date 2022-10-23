@@ -85,6 +85,7 @@ const Confirm = () => {
             <RideSelector
                distance={distance}
                data={type === 'cycling' ? cycleList : carList}
+               type={type}
             />
          </RideContainer>
       </Wrapper >

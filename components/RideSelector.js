@@ -4,7 +4,7 @@ import tw from "tailwind-styled-components"
 import { checkout } from '../checkout';
 import Header from './Header';
 
-const RideSelector = ({ distance, data }) => {
+const RideSelector = ({ distance, data, type }) => {
    const CarsRef = React.useRef([]);
    const [currentCar, setCurrentCar] = React.useState(null)
 
