@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-   console.log(req.body);
+   const { price, title } = req.body
    if (req.method === 'POST') {
       try {
          const params = {
@@ -15,27 +15,23 @@ export default async function handler(req, res) {
                { shipping_rate: 'shr_1L4pafH6oGDppJjV9MrYC7z0' },
                { shipping_rate: 'shr_1L4pn4H6oGDppJjVBL7vPTk1' },
             ],
-            line_items: req.body.map((item) => {
-               //  const img = item.metadata.image.imgix_url;
-
-               return {
-                  price_data: {
-                     currency: 'usd',
-                     product_data: {
-                        name: item.title,
-                        //  images: [img],
-                     },
-                     unit_amount: item.price * 100,
+            line_items: {
+               price_data: {
+                  currency: 'usd',
+                  product_data: {
+                     name: title,
+                     //  images: [img],
                   },
-                  adjustable_quantity: {
-                     enabled: true,
-                     minimum: 1,
-                  },
-                  quantity: 1
-               }
-            }),
-            success_url: `${req.headers.origin}/success`,
-            cancel_url: `${req.headers.origin}/cancel`,
+                  unit_amount: price * 100,
+               },
+               adjustable_quantity: {
+                  enabled: true,
+                  minimum: 1,
+               },
+               quantity: 1,
+               success_url: `${req.headers.origin}/success`,
+               cancel_url: `${req.headers.origin}/cancel`,
+            }
          }
 
          // Create Checkout Sessions from body params.
