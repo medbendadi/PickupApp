@@ -15,7 +15,6 @@ export const checkout = async (currentData) => {
    const stripe = await getStripe()
 
 
-   // console.log(currentData);
 
    const response = await fetch('/api/stripe', {
       method: 'POST',
@@ -29,7 +28,6 @@ export const checkout = async (currentData) => {
 
    const data = await response.json()
 
-   console.log(data.id);
    await stripe.redirectToCheckout({ sessionId: data.id })
 
 }

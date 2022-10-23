@@ -50,7 +50,7 @@ export default async function handler(req, res) {
             ],
             mode: 'payment',
             success_url: `https://pickup-self.vercel.app/success`,  // can send in the id of the order if already created with the property of the payment pending
-            cancel_url: `https://pickup-self.vercel.app/cancel`,
+            cancel_url: `https://pickup-self.vercel.app/confirm`,
          });
 
          res.status(200).json(session);
