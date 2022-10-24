@@ -7,12 +7,16 @@ const Success = () => {
    const { username, type } = router.query
    const [data, setData] = useState([])
    useEffect(() => {
-      if (!(username && type)) return router.replace('/')
-      if (type === 'cycling') {
-         setData(cycleList)
-      } else {
-         setData(carList)
+      const getData = () => {
+         if (!(username && type))
+            return router.replace('/')
+         if (type === 'cycling') {
+            setData(cycleList)
+         } else {
+            setData(carList)
+         }
       }
+      getData()
    }, [])
 
    console.log(data);
