@@ -39,7 +39,7 @@ const RideSelector = ({ distance, data, type }) => {
                {
                   data?.map((car, index) => (
                      <Car key={index} id='car'
-                        onClick={setActive.bind(null, index, { price: ((distance * car.multiplier) / 10).toFixed(2) })}
+                        onClick={setActive.bind(null, index, { username: car.user.username, type, price: ((distance * car.multiplier) / 10).toFixed(2) })}
                         ref={ref => {
                            CarsRef.current[index] = ref; // took this from your guide's example.
                         }}

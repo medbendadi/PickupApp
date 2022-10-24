@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-   const { price } = req.body
+   const { price, username, type } = req.body
 
    if (req.method === 'POST') {
       try {
@@ -15,7 +15,6 @@ export default async function handler(req, res) {
                   price_data: {
                      currency: 'usd',
                      product_data: {
-
                         name: 'Pickup',
                         images: ['https://i.postimg.cc/Bn6jBLtr/original-892677c725f1b56cfbdd8031e35c3f90-4.jpg'],
                      },
@@ -25,7 +24,7 @@ export default async function handler(req, res) {
                },
             ],
             mode: 'payment',
-            success_url: `https://pickup-self.vercel.app/success?sessionId=${session.id}`,  // can send in the id of the order if already created with the property of the payment pending
+            success_url: `https://pickup-self.vercel.app/success?type=${type}?username=${username}`,  // can send in the id of the order if already created with the property of the payment pending
             cancel_url: `https://pickup-self.vercel.app/confirm`,
          });
 
